@@ -1,0 +1,23 @@
+# *Author: Samuel Orekoya
+# *License: MIT
+# *Description:labs on  concurrency.
+#First simple Makefile
+#Used to contain commands to compile projects
+#Equivalent(?) to a project file in VStudio -- only better!
+#See http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/ for info.
+
+
+CC=g++
+CFLAGS= -std=c++11 -pthread 
+
+#This makes each .o file depends on .cpp file of the same name 
+%.o: %.cpp
+	$(CC) -c -o $@ $< $ (CFLAGS)
+
+ALL:
+	$(CC) -o Lab2EX main.cpp Semaphore.cpp $(CFLAGS)
+
+
+#del all .o files
+CLEAN:
+	rm *.o
